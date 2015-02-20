@@ -45,14 +45,9 @@ class NewVisitorTest(LiveServerTestCase):
 		# item in a to-do list table
 		inputbox.send_keys(Keys.ENTER)
 		edith_list_url = self.browser.current_url
+
 		self.assertRegex(edith_list_url, '/lists/.+')
 		self.check_for_row_in_list_table('1: Buy peacock feathers')
-
-		# self.assertTrue(
-		# 	any(row.text == '1: Buy peacock feathers' for row in rows),
-		# 		"New to-do item does not appear on list -- its text was:\n%s" % (
-		# 			table.text)
-		# )
 
 		# There is still a text box inviting her to add another to-do
 		# She enters "Use peacock feathers to make a fly"
